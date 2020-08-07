@@ -2,6 +2,9 @@
 
 dataset=Beauty
 
+mkdir tmp
+mkdir data
+
 echo "---------------- step 1: feature filter ----------------"
 python 1_feature_filter.py $dataset
 echo "--------------------------------------------------------"
