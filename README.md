@@ -22,23 +22,20 @@ python run_loop.py --mode=train --data_dir=./euler_data/Beauty \
 ```
 
 #### Parameters:
-| Name                  | Type            | Description  |
-| :-------------         |:-------------:  | -----:|
-| data_dir              | str             | $1600 |
-| max_id                | int             |   $12 |
-| sparse_feature_max_id | list(int)       |    $1 |
-
--  (str): directory of the specified dataset (e.g., ./euler_data/Beauty).
--  (int): maximum node id, i.e., the number of nodes - 1.
--  (\[int,...\]): list of maximum feature id.  
-- dim (int): dimensionality of hidden layers.
-- embedding_dim (int): dimensionality of feature embeddings.
-- num_negs (int): number of negative samples during training.
-- fanouts (\[int,...\]): numbers of sampled neighbors.
-- model (str): model to be trained (e.g., DecGCN).
-- model_dir (str): directory to save/load a model. 
-- batch_size: training batch size.
-- optimizer: training optimizer (e.g., adam or sgd).
-- learning_rate: learning rate for training.
-- num_epochs: number of passes over the training data.
-- log_steps: number of batches to print the log info.
+| Name                  | Type            | Description   |
+| :-------------        |:-------------   |:------------- |
+| mode                  | enum            | train, evaluate or save_embedding. |
+| data_dir              | str             | directory of the specified dataset (e.g., ./euler_data/Beauty). |
+| max_id                | int             | maximum node id, i.e., the number of nodes - 1. |
+| sparse_feature_max_id | list(int)       | list of maximum feature id. | 
+| dim                   | int             | dimensionality of hidden layers. |
+| embedding_dim         | int             | dimensionality of feature embeddings. |
+| num_negs              | int             | number of negative samples during training. |
+| fanouts               | list(int)       | numbers of sampled neighbors. |
+| model                 | str             | model to be trained (e.g., DecGCN). |
+| model_dir             | str             | directory to save/load a model. |
+| batch_size            | int             | training batch size. |
+| optimizer             | enum            | training optimizer (e.g., adam or sgd). |
+| learning_rate         | float           | learning rate for training. |
+| num_epochs            | int             | number of passes over the training data. |
+| log_steps             | int             | number of batches to print the log info. |
