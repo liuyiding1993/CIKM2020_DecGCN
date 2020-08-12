@@ -23,7 +23,7 @@ python run_loop.py --mode=train --data_dir=./euler_data/Beauty \
 
 #### Parameters:
 | Name                  | Type            | Description  |
-| -------------         |:-------------:  | -----:|
+| :-------------         |:-------------:  | -----:|
 | data_dir              | str             | $1600 |
 | max_id                | int             |   $12 |
 | sparse_feature_max_id | list(int)       |    $1 |
