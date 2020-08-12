@@ -1,4 +1,4 @@
-# Decoupled Graph Convolution Network for InferringSubstitutable and Complementary Items (CIKM 2020)
+# Decoupled Graph Convolution Network for Inferring Substitutable and Complementary Items (CIKM 2020)
 
 ## How To Use
 
@@ -21,17 +21,17 @@ python run_loop.py --data_dir=./euler_data/Beauty --max_id=114792 --sparse_featu
 ```
 
 #### Parameters:
-data_dir:
-max_id: 
-sparse_feature_max_id
-dim
-embedding_dim
-num_negs
-fanouts
-model
-model_dir
-batch_size
-optimizer
-learning_rate
-num_epochs
-log_steps
+- data_dir:
+- max_id: 
+- sparse_feature_max_id
+- dim
+- embedding_dim
+- num_negs
+- fanouts
+- model
+- model_dir
+- batch_size
+- optimizer
+- learning_rate
+- num_epochs
+- log_steps
