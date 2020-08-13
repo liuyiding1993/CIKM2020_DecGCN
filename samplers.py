@@ -39,3 +39,4 @@ def sample_patterned_metapaths(nodes, patterns, count_per_path, default_node=-1)
     all_neighbors.append(pattern_neighbors)
   all_nodes = [nodes] * len(patterns)
   return all_nodes, all_neighbors
+

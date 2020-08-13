@@ -26,6 +26,7 @@ def main():
         for rid in related_data['also_viewed']:
           if rid not in all_asin: continue
           u, v = str(asin), str(rid)
+          if u > v: u, v = v, u
           edge = (u, v)
           sim_edges[edge] += 1
 
@@ -33,6 +34,7 @@ def main():
         for rid in related_data['also_bought']:
           if rid not in all_asin: continue
           u, v = str(asin), str(rid)
+          if u > v: u, v = v, u
           edge = (u, v)
           rel_edges[edge] += 1
     

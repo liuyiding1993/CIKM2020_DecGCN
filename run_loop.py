@@ -43,10 +43,11 @@ def define_network_embedding_flags():
   tf.flags.DEFINE_enum('mode', 'train',
                        ['train', 'evaluate', 'save_embedding'], 'Run mode.')
 
-  tf.flags.DEFINE_string('data_dir', 'Beauty', 'Local Euler graph data.')
-  tf.flags.DEFINE_integer('max_id', -1, 'Max node id.')
+  tf.flags.DEFINE_string('data_dir', 'euler_data/Beauty', 'Local Euler graph data.')
+
+  tf.flags.DEFINE_integer('max_id', 114792, 'Max node id.')
   tf.flags.DEFINE_list('sparse_feature_idx', [0, 1, 2], 'Sparse feature index')
-  tf.flags.DEFINE_list('sparse_feature_max_id', [16, 114, 8330], 'Sparse feature max id')
+  tf.flags.DEFINE_list('sparse_feature_max_id', [11, 45, 11179], 'Sparse feature max id')
 
   tf.flags.DEFINE_integer('train_node_type', 0, 'Node type of training set.')
   tf.flags.DEFINE_integer('all_node_type', euler_ops.ALL_NODE_TYPE,
@@ -82,7 +83,7 @@ def define_network_embedding_flags():
   tf.flags.DEFINE_string('model_dir', 'ckpt', 'Model checkpoint.')
   tf.flags.DEFINE_integer('batch_size', 512, 'Mini-batch size.')
   tf.flags.DEFINE_string('optimizer', 'adam', 'Optimizer to use.')
-  tf.flags.DEFINE_float('learning_rate', 0.01, 'Learning rate.')
+  tf.flags.DEFINE_float('learning_rate', 1e-4, 'Learning rate.')
   tf.flags.DEFINE_integer('num_epochs', 20, 'Number of epochs for training.')
   tf.flags.DEFINE_integer('log_steps', 20, 'Number of steps to print log.')
 
@@ -298,6 +299,8 @@ def run_save_embedding(model, flags_obj, master, is_chief):
 
 def run_network_embedding(flags_obj, master, is_chief):
   fanouts = map(int, flags_obj.fanouts)
+  sparse_feature_idx = map(int, flags_obj.sparse_feature_idx)
+  sparse_feature_max_id = map(int, flags_obj.sparse_feature_max_id)
   
   if flags_obj.mode == 'evaluate':
     eval_edge_type = flags_obj.eval_edge_type
@@ -324,8 +327,8 @@ def run_network_embedding(flags_obj, master, is_chief):
         feature_idx=flags_obj.feature_idx,
         feature_dim=flags_obj.feature_dim,
         embedding_dim=flags_obj.embedding_dim,
-        sparse_feature_idx=flags_obj.sparse_feature_idx,
-        sparse_feature_max_id=flags_obj.sparse_feature_max_id)
+        sparse_feature_idx=sparse_feature_idx,
+        sparse_feature_max_id=sparse_feature_max_id)
 
   if flags_obj.model == 'DecGCN/ST':
     metapath = [[int(l)] * len(fanouts) for l in flags_obj.train_edge_type]
@@ -344,8 +347,8 @@ def run_network_embedding(flags_obj, master, is_chief):
         feature_idx=flags_obj.feature_idx,
         feature_dim=flags_obj.feature_dim,
         embedding_dim=flags_obj.embedding_dim,
-        sparse_feature_idx=flags_obj.sparse_feature_idx,
-        sparse_feature_max_id=flags_obj.sparse_feature_max_id)
+        sparse_feature_idx=sparse_feature_idx,
+        sparse_feature_max_id=sparse_feature_max_id)
 
   elif flags_obj.model == 'DecGCN':
     model = DecGCN(
@@ -363,8 +366,8 @@ def run_network_embedding(flags_obj, master, is_chief):
         feature_idx=flags_obj.feature_idx,
         feature_dim=flags_obj.feature_dim,
         embedding_dim=flags_obj.embedding_dim,
-        sparse_feature_idx=flags_obj.sparse_feature_idx,
-        sparse_feature_max_id=flags_obj.sparse_feature_max_id)
+        sparse_feature_idx=sparse_feature_idx,
+        sparse_feature_max_id=sparse_feature_max_id)
 
   if flags_obj.mode == 'train':
     run_train(model, flags_obj, master, is_chief)
