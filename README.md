@@ -1,5 +1,4 @@
-# Decoupled Graph Convolution Network for Inferring Substitutable and Complementary Items 
-# In CIKM 2020 Applied Research Track
+# Decoupled Graph Convolution Network for Inferring Substitutable and Complementary Items (CIKM 2020 Applied Research Track)
 
 ## How To Use
 
