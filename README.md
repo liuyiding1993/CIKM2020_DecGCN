@@ -1,4 +1,5 @@
-# Decoupled Graph Convolution Network for Inferring Substitutable and Complementary Items (CIKM 2020)
+# Decoupled Graph Convolution Network for Inferring Substitutable and Complementary Items 
+# In CIKM 2020 Applied Research Track
 
 ## How To Use
 
@@ -24,7 +25,7 @@ python run_loop.py --mode=train --data_dir=./euler_data/Beauty \
 #### Parameters:
 | Name                  | Type            | Description   |
 | :-------------        |:-------------   |:------------- |
-| mode                  | enum            | train, evaluate or save_embedding. |
+| mode                  | enum(str)            | train, evaluate or save_embedding. |
 | data_dir              | str             | directory of the specified dataset (e.g., ./euler_data/Beauty). |
 | max_id                | int             | maximum node id, i.e., the number of nodes - 1. |
 | sparse_feature_max_id | list(int)       | list of maximum feature id. | 
@@ -35,7 +36,7 @@ python run_loop.py --mode=train --data_dir=./euler_data/Beauty \
 | model                 | str             | model to be trained (e.g., DecGCN). |
 | model_dir             | str             | directory to save/load a model. |
 | batch_size            | int             | training batch size. |
-| optimizer             | enum            | training optimizer (e.g., adam or sgd). |
+| optimizer             | enum(str)            | training optimizer (e.g., adam or sgd). |
 | learning_rate         | float           | learning rate for training. |
 | num_epochs            | int             | number of passes over the training data. |
 | log_steps             | int             | number of batches to print the log info. |
