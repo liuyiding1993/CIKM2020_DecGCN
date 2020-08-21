@@ -39,3 +39,16 @@ python run_loop.py --mode=train --data_dir=./euler_data/Beauty \
 | learning_rate         | float           | learning rate for training. |
 | num_epochs            | int             | number of passes over the training data. |
 | log_steps             | int             | number of batches to print the log info. |
+
+## Citation
+
+Please kindly cite the paper if this repo is helpful :)
+
+```
+@inproceedings{gu2020dmt,
+  title={Decoupled Graph Convolution Network for Inferring Substitutable and Complementary Items},
+  author={Liu, Yiding and Gu, Yulong and Ding, Zhuoye and Gao, Junchao and Guo, Ziyi and Bao, Yongjun and Yan, Weipeng},
+  booktitle={CIKM'20},
+  year={2020}
+}
+```
