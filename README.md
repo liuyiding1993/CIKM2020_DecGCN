@@ -45,7 +45,7 @@ python run_loop.py --mode=train --data_dir=./euler_data/Beauty \
 Please kindly cite the paper if this repo is helpful :)
 
 ```
-@inproceedings{gu2020dmt,
+@inproceedings{liu2020decoupled,
   title={Decoupled Graph Convolution Network for Inferring Substitutable and Complementary Items},
   author={Liu, Yiding and Gu, Yulong and Ding, Zhuoye and Gao, Junchao and Guo, Ziyi and Bao, Yongjun and Yan, Weipeng},
   booktitle={CIKM'20},
